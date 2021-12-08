@@ -29,6 +29,15 @@ iOS: https://itunes.apple.com/kr/app/google-authenticator/id388497605?mt=8
 
 4. 로그인 완료
 
+※ 6자리 인증 번호 주기 시간 
+/*
+	* window 변수의 역활은 인증 주기 시간인거 같다 (Hash값 테스트 결과)
+	* Google OTP 앱에 표기되는 6자리가 몇초 몇 분마다 바뀌냐에 따라 windown 변수값을 올리면됨
+	* 검증 시 hash값을 찍어보면 1개의 OTP 번호가 아닌 여러개의 번호중 입력된 번화와 일치하는지 비교확인
+	* window변수값을 3으로 줄시 약간의 시간차가 있어서 앞,뒤의 OTP검증 번호도 1~2분 내에서는 인증이
+	* Google OTOP의 주기가 30초 인관계로 30초가 지나면 새로운 인증값을 받기위해 window값을 0으로설정
+*/
+
 Spring boot 
 테스트 URL : http://127.0.0.1/loginView
 
