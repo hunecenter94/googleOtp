@@ -28,3 +28,7 @@ iOS: https://itunes.apple.com/kr/app/google-authenticator/id388497605?mt=8
 3. 없을시 Google OTP 앱으로 바코드 등록 유도 or 있을때 otp 6자리 인증
 
 4. 로그인 완료
+
+Spring boot 
+테스트 URL : http://127.0.0.1/loginView
+
