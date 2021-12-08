@@ -58,17 +58,22 @@ public class GoogleOtp {
 	 * @return
 	 */
 	public static boolean checkCode(String userCode, String otpkey) {
-		System.out.println("userCode : "+userCode);
-		System.out.println("otpkey : "+otpkey);
 		boolean result = false;
 		if(isNumber(userCode)){
 			long otpnum = Integer.parseInt(userCode); // Google OTP 앱에 표시되는 6자리 숫자
 			long wave = new Date().getTime() / 30000; // Google OTP의 주기는 30초
-		
 			try {
 				Base32 codec = new Base32();
 				byte[] decodedKey = codec.decode(otpkey);
-				int window = 3;
+				//int window = 3;
+				/*
+				 * window 변수의 역활은 인증 주기 시간인거 같다 
+				 * Google OTP 앱에 표기되는 6자리가 몇초 몇 분마다 바뀌냐에 따라 windown 변수값을 올리면됨
+				 * 검증 시 hash값을 찍어보면 1개의 OTP 번호가 아닌 여러개의 번호중 입력된 번화와 일치하는지 비교확인
+				 * window변수값을 3으로 줄시 약간의 시간차가 있어서 앞,뒤의 OTP검증 번호도 1~2분 내에서는 인증이
+				 * Google OTOP의 주기가 30초 인관계로 30초가 지나면 새로운 인증값을 받기위해 window값을 0으로설정
+				*/
+				int window = 0;
 				for (int i = -window; i <= window; ++i) {
 					long hash = verify_code(decodedKey, wave + i);
 					if (hash == otpnum) result = true;
@@ -150,7 +155,7 @@ public class GoogleOtp {
 	    return true;
 	}	
 	
-	 /**
+	/**
      * NULL 문자를 대체한다.
      * @param obj 원본 객체
      * @return obj가 NULL일 경우 "", 아닐경우 obj
