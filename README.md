@@ -38,7 +38,7 @@ git에 올린 project는 DB에 키값을 저장하는 것이아닌 간단한 테
 ```
 
 ### [참고]
-```
-- https://lasdri.tistory.com/793
-- https://www.javacodegeeks.com/2011/12/google-authenticator-using-it-with-your.html#comment-14663
+``` 
+https://lasdri.tistory.com/793
+https://www.javacodegeeks.com/2011/12/google-authenticator-using-it-with-your.html#comment-14663
 ```
