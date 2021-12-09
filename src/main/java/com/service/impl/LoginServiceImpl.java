@@ -53,8 +53,6 @@ public class LoginServiceImpl implements LoginService {
 			generateJson.addProperty("qrCdUrl", qrCdUrl);
 			generateJson.addProperty("gotpKey", gotpKey);
 			
-			System.out.println(gotpKey);
-			System.out.println(qrCdUrl);
 		}else {
 			//OTP KEY 생성 및 QR CODE URL 생성
 			otpGenerate = GoogleOtp.generate(vo.getUserId(), serverUrl);
@@ -91,6 +89,7 @@ public class LoginServiceImpl implements LoginService {
 		boolean certChk = false;
 		
 		if(!"".equals(GoogleOtp.replaceNull(gotpKey)) && !"".equals(GoogleOtp.replaceNull(vo.getUserCode()))) {
+			
 			certChk = GoogleOtp.checkCode(vo.getUserCode(), gotpKey);
 			System.out.println("certChk : "+ certChk);
 			if(certChk) {
