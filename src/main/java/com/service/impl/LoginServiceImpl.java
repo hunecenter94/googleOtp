@@ -91,7 +91,7 @@ public class LoginServiceImpl implements LoginService {
 		if(!"".equals(GoogleOtp.replaceNull(gotpKey)) && !"".equals(GoogleOtp.replaceNull(vo.getUserCode()))) {
 			
 			certChk = GoogleOtp.checkCode(vo.getUserCode(), gotpKey);
-			System.out.println("certChk : "+ certChk);
+			
 			if(certChk) {
 				certJson.addProperty("result", LOGIN_SUCCESS);
 			}else {
