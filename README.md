@@ -1,6 +1,6 @@
 # googleOtp (Spring boot)
 
-### OTP 앱
+### OTP 앱 설치
 ```
 안드로이드: https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2&hl=ko
 
